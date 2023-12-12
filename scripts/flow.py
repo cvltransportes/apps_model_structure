@@ -1,9 +1,10 @@
 import scripts.tasks as ts
-from priority_classes.interface import Interface
-from priority_classes.ssw import SswRequest
-from priority_classes.datahandler import Handler
-from priority_classes.app import BotApp
-from priority_classes.task_scheduler import TaskManager
+from priority_classes.interface.interface import Interface
+from priority_classes.ssw.ssw import SswRequest
+from priority_classes.datahandler.datahandler import Handler
+from priority_classes.app.app import BotApp
+from priority_classes.task_scheduler.task_scheduler import TaskManager
+from priority_classes.decorators.decorators import time_out
 
 mg = TaskManager()
 
@@ -19,7 +20,7 @@ app.set_bot(
 )
 
 
-@hd.time_out(3)
+@time_out(3)
 def init_credentials():
     """
     Initialize SSW Credentials.
