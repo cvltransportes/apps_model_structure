@@ -65,5 +65,19 @@ def main():
     task2()
 
 
+@time_out()
+def main_api():
+    """
+    pip install Flask
+    pip install Flask-RESTful
+    pip install Flask-Limiter
+    """
+    import priority_classes.wrap_api.wrap_api as wp
+    mg.create_task_scheduler(app.bot_name)
+    init_credentials()
+    wp.api_wrap('/api/task1', task1, methods=['POST'])
+    wp.run('50001')
+
+
 if __name__ == '__main__':
     pass
