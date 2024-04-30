@@ -11,7 +11,7 @@ REM Atualizar PIP para última versão
 python.exe -m pip install --upgrade pip
 
 REM install packages
-python -m pip install -e "C:\Users\06213\OneDrive\GitHub\CARVALIMA\priority_classes"
+python -m pip install priority_classes
 
 REM Listar pacotes instalados
 pip list
