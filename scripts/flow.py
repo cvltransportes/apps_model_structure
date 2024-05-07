@@ -5,6 +5,9 @@ from priority_classes.datahandler.datahandler import Handler
 from priority_classes.app.app import BotApp
 from priority_classes.task_scheduler.task_scheduler import TaskManager
 from priority_classes.decorators.decorators import time_out
+import platform
+
+system = platform.system()
 
 mg = TaskManager()
 
@@ -71,9 +74,11 @@ def main_api():
     pip install Flask
     pip install Flask-RESTful
     pip install Flask-Limiter
+    pip install flask-cors
     """
     import priority_classes.wrap_api.wrap_api as wp
-    mg.create_task_scheduler(app.bot_name)
+    if system == 'Windows':
+        mg.create_task_scheduler(app.bot_name)
     init_credentials()
     wp.api_wrap('/api/task1', task1, methods=['POST'])
     wp.run('50001')
