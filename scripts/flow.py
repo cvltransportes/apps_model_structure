@@ -62,7 +62,8 @@ def main_ui():
 
 
 def main():
-    mg.create_task_scheduler(app.bot_name)
+    if system == 'Windows':
+        mg.create_task_scheduler(app.bot_name)
     init_credentials()
     task1()
     task2()
