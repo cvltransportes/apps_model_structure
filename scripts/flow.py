@@ -16,7 +16,7 @@ hd = Handler()
 app = BotApp()
 
 app.set_bot(
-    bot_name='bot_name',
+    bot_name='Bot_qualidade_lanca_601_coleta_realizada_sap',
     bot_description='This bot do this',
     bot_version='1.0.0',
     bot_department='department'
