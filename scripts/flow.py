@@ -23,7 +23,7 @@ app.set_bot(
 )
 
 
-@time_out(3)
+@time_out(1)
 def init_credentials():
     """
     Initialize SSW Credentials.
@@ -81,8 +81,8 @@ def main_api():
     if system == 'Windows':
         mg.create_task_scheduler(app.bot_name)
     init_credentials()
-    wp.api_wrap('/api/task1', task1, methods=['POST'])
-    wp.run('50001')
+    wp.api_wrap('/api/task1','task1', task1, methods=['POST'])
+    wp.run('50001',False)
 
 
 if __name__ == '__main__':
