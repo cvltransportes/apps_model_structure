@@ -1,4 +1,4 @@
-import scripts.tasks as ts
+import src.tasks as ts
 from priority_classes.interface.interface import Interface
 from priority_classes.ssw.ssw import SswRequest
 from priority_classes.datahandler.datahandler import Handler
@@ -64,7 +64,7 @@ def main_ui():
 def main():
     if system == 'Windows':
         mg.create_task_scheduler(app.bot_name)
-    init_credentials()
+    #init_credentials()
     task1()
     task2()
 
@@ -80,7 +80,7 @@ def main_api():
     import priority_classes.wrap_api.wrap_api as wp
     if system == 'Windows':
         mg.create_task_scheduler(app.bot_name)
-    init_credentials()
+    #init_credentials()
     wp.api_wrap('/api/task1','task1', task1, methods=['POST'])
     wp.run('50001',False)
 

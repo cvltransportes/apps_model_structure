@@ -1,2 +1,2 @@
-import scripts.tasks as ts
+import src.tasks as ts
 from pytest import mark
