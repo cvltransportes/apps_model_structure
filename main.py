@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 try:
-    from scripts import flow
+    from src import flow
     flow.main()
 except Exception as e:
     logging.exception(e)
