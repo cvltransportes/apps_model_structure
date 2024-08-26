@@ -154,11 +154,11 @@ cython_debug/
 Bot_*/
 apis/
 *.zip
-relatorios/
+*relatorios/
 *.csv
 *.xlsx
-config/
-parameters/
-Default/
-downloads/
+*config/
+*parameters/
+*Default/
+*downloads/
 logExceptions.txt
