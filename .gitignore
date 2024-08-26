@@ -157,3 +157,7 @@ apis/
 relatorios/
 *.csv
 *.xlsx
+config/
+parameters/
+Default/
+downloads/
