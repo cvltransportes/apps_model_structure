@@ -161,3 +161,4 @@ config/
 parameters/
 Default/
 downloads/
+logExceptions.txt
