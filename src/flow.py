@@ -1,3 +1,7 @@
+import sys ,os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from settings import *
 import src.tasks as ts
 from priority_classes.interface.interface import Interface
 from priority_classes.ssw.ssw import SswRequest
