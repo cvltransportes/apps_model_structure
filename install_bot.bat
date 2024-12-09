@@ -1,7 +1,7 @@
-REM Verificar versao instalado do python (este projeto foi feito em Python 3.11)
+REM Verificar versao instalado do python
 python --version
 
-REM Crie um ambiente virtual em Python 3.11
+REM Crie um ambiente virtual em Python
 python -m venv venv
 
 REM Ativar o ambiente virtual
@@ -15,3 +15,5 @@ python -m pip install -r requirements.txt
 
 REM Listar pacotes instalados
 pip list
+
+pause

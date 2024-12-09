@@ -1,21 +1,17 @@
-import sys ,os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import os
+import sys
+import platform
+from dataprocess import dataprocessing as hd
 
 from settings import *
 import src.tasks as ts
-from priority_classes.interface.interface import Interface
-from priority_classes.ssw.ssw import SswRequest
-from priority_classes.datahandler.datahandler import Handler
 from priority_classes.app.app import BotApp
-from priority_classes.task_scheduler.task_scheduler import TaskManager
 from priority_classes.decorators.decorators import time_out
-import platform
+
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 system = platform.system()
-
-mg = TaskManager()
-
-hd = Handler()
 
 app = BotApp()
 
@@ -37,6 +33,7 @@ def init_credentials():
     :return: The user's information.
     :rtype: str
     """
+    from priority_classes.ssw.ssw import SswRequest
     ssw = SswRequest()
     ssw.init_browser()
     ssw.login()
@@ -54,10 +51,11 @@ def task1():
 @app.task
 def task2():
     """This task do this"""
-    ts.task2()
+    return ts.task2()
 
 
 def main_ui():
+    from priority_classes.interface.interface import Interface
     while True:
         ui = Interface(user=init_credentials())
         buttons_name = ['task1', 'task2']
@@ -67,8 +65,10 @@ def main_ui():
 
 def main():
     if system == 'Windows':
+        from priority_classes.task_scheduler.task_scheduler import TaskManager
+        mg = TaskManager()
         mg.create_task_scheduler(app.bot_name)
-    #init_credentials()
+
     task1()
     task2()
 
@@ -82,11 +82,8 @@ def main_api():
     pip install flask-cors
     """
     import priority_classes.wrap_api.wrap_api as wp
-    if system == 'Windows':
-        mg.create_task_scheduler(app.bot_name)
-    #init_credentials()
-    wp.api_wrap('/api/task1','task1', task1, methods=['POST'])
-    wp.run('50001',False)
+    wp.api_wrap('/api/task1', 'task1', task1, methods=['POST'])
+    wp.run('50001', False)
 
 
 if __name__ == '__main__':
